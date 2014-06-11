@@ -1,0 +1,3 @@
+Para compilar o programa deve-se substituir o arquivo boards.h que se encontra no diretório 
+C:\Keil\ARM\Device\Nordic\nrf51822\Include pelo que se encontra neste repositório e adicionar o arquivo PCA1000X.h no 
+diretório C:\Keil\ARM\Device\Nordic\nrf51822\Include.
