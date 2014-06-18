@@ -21,6 +21,7 @@
 	#include "boards.h"
 
 	uint32_t *time 		= (uint32_t *) T_TX;
+	uint32_t *flag_transmissao 		= (uint32_t *) FLAG;
 	bool volatile interruptor1 = false;
 	
 	
@@ -93,13 +94,16 @@ void RTC0_IRQHandler(void){
 			
 					interruptor1 = true;
 					
-					// Configura o módulo de radio
-					transceiver_setup();
+					if(*flag_transmissao == 1){
 					
-					for(int i = 0; i < 3; i++){
+							// Configura o módulo de radio
+							transceiver_setup();
+					
+							for(int i = 0; i < 3; i++){
 						
-							transmissor();
+									transmissor();
 					
+							}
 					}
 					
 					//Radio_init(); //interrupção do radio atualmente não funciona

@@ -79,9 +79,10 @@
 // uint32_t UICR_ADDR_0xFC __attribute__((at(0x100010FC))) __attribute__((used)) = 0xFFFFFFFF;
 
 uint32_t CODE_ADDR_0x7C00 __attribute__((at(0x00007C00))) __attribute__((used)) = 0x01;
-uint32_t CODE_ADDR_0x7C04 __attribute__((at(0x00007C04))) __attribute__((used)) = 0x04;
+uint32_t CODE_ADDR_0x7C04 __attribute__((at(0x00007C04))) __attribute__((used)) = 0xF0;
 uint32_t CODE_ADDR_0x7C08 __attribute__((at(0x00007C08))) __attribute__((used)) = 0x05;
 uint32_t CODE_ADDR_0x7C0C __attribute__((at(0x00007C0C))) __attribute__((used)) = 0x00ABCDEF;
+uint32_t CODE_ADDR_0x7C10 __attribute__((at(0x00007C10))) __attribute__((used)) = 0x01;
 
 /*lint --flb "Leave library region" */
 

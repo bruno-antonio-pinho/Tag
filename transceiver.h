@@ -18,6 +18,7 @@
 #define PTX                 (0x00007C04)
 #define T_TX                (0x00007C08)
 #define ID	                (0x00007C0C)
+#define FLAG	                (0x00007C10)
 
 
 void reconf_info_tag(void);
@@ -26,6 +27,6 @@ void transmissor();
 void receptor();
 uint32_t conversor_byte_int(uint8_t buff[], int pos);
 void conversor_int_byte(uint8_t buff[], int pos, uint32_t valor);
-int gravar_dados(uint32_t valor_ptx, uint32_t valor_ttx, uint32_t valor_id);
+int gravar_dados(uint32_t valor_ptx, uint32_t valor_ttx, uint32_t valor_id, uint32_t valor_flag);
 void desliga_interruptor2(void);
 #endif

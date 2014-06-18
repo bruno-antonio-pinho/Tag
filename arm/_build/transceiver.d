@@ -1,0 +1,16 @@
+.\_build\transceiver.o: ..\transceiver.c
+.\_build\transceiver.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\_build\transceiver.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\_build\transceiver.o: ..\..\..\..\Include\nrf_gpio.h
+.\_build\transceiver.o: ..\..\..\..\Include\nrf51.h
+.\_build\transceiver.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\transceiver.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\_build\transceiver.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\_build\transceiver.o: ..\..\..\..\Include\system_nrf51.h
+.\_build\transceiver.o: ..\..\..\..\Include\nrf51_bitfields.h
+.\_build\transceiver.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\transceiver.o: ..\interruptions.h
+.\_build\transceiver.o: ..\transceiver.h
+.\_build\transceiver.o: ..\uicr_config.h
+.\_build\transceiver.o: ..\flash.h
+.\_build\transceiver.o: ..\radio_config.h

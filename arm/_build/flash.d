@@ -1,0 +1,15 @@
+.\_build\flash.o: ..\flash.c
+.\_build\flash.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\_build\flash.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\_build\flash.o: ..\flash.h
+.\_build\flash.o: ..\..\..\..\Include\nrf.h
+.\_build\flash.o: ..\..\..\..\Include\compiler_abstraction.h
+.\_build\flash.o: ..\..\..\..\Include\nrf51.h
+.\_build\flash.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\flash.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\_build\flash.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\_build\flash.o: ..\..\..\..\Include\system_nrf51.h
+.\_build\flash.o: ..\..\..\..\Include\nrf51_bitfields.h
+.\_build\flash.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\flash.o: ..\..\..\..\Include\nrf51_deprecated.h
+.\_build\flash.o: ..\..\..\..\Include\nrf_delay.h

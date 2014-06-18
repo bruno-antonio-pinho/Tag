@@ -1,0 +1,15 @@
+.\_build\interruptions.o: ..\interruptions.c
+.\_build\interruptions.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\_build\interruptions.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\_build\interruptions.o: ..\interruptions.h
+.\_build\interruptions.o: ..\..\..\..\Include\nrf.h
+.\_build\interruptions.o: ..\..\..\..\Include\compiler_abstraction.h
+.\_build\interruptions.o: ..\..\..\..\Include\nrf51.h
+.\_build\interruptions.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\interruptions.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\_build\interruptions.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\_build\interruptions.o: ..\..\..\..\Include\system_nrf51.h
+.\_build\interruptions.o: ..\..\..\..\Include\nrf51_bitfields.h
+.\_build\interruptions.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\_build\interruptions.o: ..\..\..\..\Include\nrf51_deprecated.h
+.\_build\interruptions.o: ..\..\..\..\Include\nrf_delay.h

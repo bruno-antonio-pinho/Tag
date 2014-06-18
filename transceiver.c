@@ -36,8 +36,9 @@ uint32_t *taxa 					= (uint32_t *) TX;
 uint32_t *potencia 			= (uint32_t *) PTX;
 uint32_t *intervalo 		= (uint32_t *) T_TX;
 uint32_t *identidade 		= (uint32_t *) ID;
+uint32_t *tx_flag		 		= (uint32_t *) FLAG;
 
-static uint8_t packet[10];  ///< Packet to transmit
+static uint8_t packet[11];  ///< Packet to transmit
 
 bool volatile interruptor2;
 
@@ -47,6 +48,7 @@ taxa 					= (uint32_t *) TX;
 potencia 			= (uint32_t *) PTX;
 intervalo 		= (uint32_t *) T_TX;
 identidade 		= (uint32_t *) ID;
+tx_flag		 		= (uint32_t *) FLAG;
 	
 }
 
@@ -132,7 +134,7 @@ void receptor(){
 				((uint32_t)packet[1] != (uint32_t)*intervalo) || ((uint32_t)packet[2] != (uint32_t)*intervalo) || 
 				(id_atual != id_nova))){
 					
-						gravar_dados((uint32_t)packet[0],(uint32_t)packet[1],id_nova);
+						gravar_dados((uint32_t)packet[0],(uint32_t)packet[1],id_nova, packet[10]);
 				
 			}
 			
@@ -164,7 +166,7 @@ void conversor_int_byte(uint8_t buff[], int pos, uint32_t valor){
 }
 	
 	
-		int gravar_dados(uint32_t valor_ptx, uint32_t valor_ttx, uint32_t valor_id){
+		int gravar_dados(uint32_t valor_ptx, uint32_t valor_ttx, uint32_t valor_id, uint32_t valor_flag){
 			
 			flash_page_erase((uint32_t *)TX);
 			
@@ -172,6 +174,7 @@ void conversor_int_byte(uint8_t buff[], int pos, uint32_t valor){
 			flash_word_write((uint32_t *)PTX, valor_ptx);
 			flash_word_write((uint32_t *)T_TX, valor_ttx);
 			flash_word_write((uint32_t *)ID, valor_id);
+			flash_word_write((uint32_t *)FLAG, valor_flag);
 			
 		}
 		
