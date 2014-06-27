@@ -18,7 +18,8 @@
 #define PTX                 (0x00007C04)
 #define T_TX                (0x00007C08)
 #define ID	                (0x00007C0C)
-#define FLAG	                (0x00007C10)
+#define FLAG	              (0x00007C10)
+#define EXTRA_TIME          (0x00007C14)
 
 
 void reconf_info_tag(void);

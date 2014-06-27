@@ -37,6 +37,7 @@ uint32_t *potencia 			= (uint32_t *) PTX;
 uint32_t *intervalo 		= (uint32_t *) T_TX;
 uint32_t *identidade 		= (uint32_t *) ID;
 uint32_t *tx_flag		 		= (uint32_t *) FLAG;
+uint32_t *extra			 		= (uint32_t *) EXTRA_TIME;
 
 static uint8_t packet[11];  ///< Packet to transmit
 
@@ -49,6 +50,7 @@ potencia 			= (uint32_t *) PTX;
 intervalo 		= (uint32_t *) T_TX;
 identidade 		= (uint32_t *) ID;
 tx_flag		 		= (uint32_t *) FLAG;
+extra			 		= (uint32_t *) EXTRA_TIME;
 	
 }
 
@@ -172,9 +174,11 @@ void conversor_int_byte(uint8_t buff[], int pos, uint32_t valor){
 			
 			flash_word_write((uint32_t *)TX, 1);
 			flash_word_write((uint32_t *)PTX, valor_ptx);
-			flash_word_write((uint32_t *)T_TX, valor_ttx);
 			flash_word_write((uint32_t *)ID, valor_id);
+			flash_word_write((uint32_t *)T_TX, valor_ttx);
 			flash_word_write((uint32_t *)FLAG, valor_flag);
+			flash_word_write((uint32_t *)EXTRA_TIME, 0x00C350);
+			
 			
 		}
 		

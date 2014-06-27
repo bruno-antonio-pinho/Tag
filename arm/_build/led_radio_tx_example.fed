@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Wed Jun 18 15:56:05 2014
+;#<FEEDBACK># ARM Linker, 5.03 [Build 76]: Last Updated: Fri Jun 27 17:06:02 2014
 ;VERSION 0.2
 ;FILE flash.o
 __asm___7_flash_c_8a8425b4____REV16 <= USED 0
@@ -6,7 +6,6 @@ __asm___7_flash_c_8a8425b4____REVSH <= USED 0
 __asm___7_flash_c_8a8425b4__nrf_delay_us <= USED 0
 flash_uicr_erase <= USED 0
 ;FILE interruptions.o
-Radio_init <= USED 0
 __asm___15_interruptions_c_472b8b59____REV16 <= USED 0
 __asm___15_interruptions_c_472b8b59____REVSH <= USED 0
 __asm___15_interruptions_c_472b8b59__nrf_delay_us <= USED 0

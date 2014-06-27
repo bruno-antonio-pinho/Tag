@@ -79,18 +79,6 @@
 		
 }
 	
- 	void Radio_init(void){
-		
-		/* Configura a interrupção do Radio */ 
-    NRF_RADIO->INTENSET = RADIO_INTENSET_DEVMATCH_Msk; 
-		
-		/* Habilita a interuupção do Radio e seta a prioridade como 0 */
-		NVIC_EnableIRQ(RADIO_IRQn);
-		NVIC_SetPriority(RADIO_IRQn, 0);
-
-		
-}
-	
 void RTC0_disable(void){
 	
 			NRF_RTC0->INTENSET = (RTC_INTENSET_COMPARE0_Disabled << RTC_INTENSET_COMPARE0_Pos);
@@ -106,14 +94,6 @@ void RTC1_disable(void){
 			NRF_RTC1->EVTENSET = (RTC_EVTEN_COMPARE0_Disabled    << RTC_EVTEN_COMPARE0_Pos);
 			NRF_RTC1->INTENCLR = (RTC_INTENCLR_COMPARE0_Enabled  << RTC_INTENCLR_COMPARE0_Pos);
 			NRF_RTC1->EVTENCLR = (RTC_EVTENCLR_COMPARE0_Enabled  << RTC_EVTENCLR_COMPARE0_Pos);
-	
-}
-
-void Radio_disable(void){
-	
-			NRF_RADIO->INTENSET = (RADIO_INTENSET_DEVMATCH_Disabled << RADIO_INTENSET_DEVMATCH_Pos);
-			NRF_RADIO->INTENCLR = (RADIO_INTENCLR_DEVMATCH_Enabled  << RADIO_INTENCLR_DEVMATCH_Pos);
-
 	
 }
 

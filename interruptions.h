@@ -16,9 +16,7 @@
 
 void RTC0_init(uint32_t temporizador);
 void RTC1_init(void);
-void Radio_init(void);
 void RTC0_disable(void);
 void RTC1_disable(void);
-void Radio_disable(void);
 
 #endif

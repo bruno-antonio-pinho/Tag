@@ -17,16 +17,17 @@
 	#include "flash.h"
 	#include "transceiver.h"
 	#include "nrf_delay.h"
-	#include "simple_uart.h"
 	#include "boards.h"
 
 	uint32_t *time 		= (uint32_t *) T_TX;
 	uint32_t *flag_transmissao 		= (uint32_t *) FLAG;
+	uint32_t *tempo_extra 		= (uint32_t *) EXTRA_TIME;
+	
 	bool volatile interruptor1 = false;
 	
 	
 	
-	void init(void)
+	void init_16M(void)
 	{
 		
 		/* Inicia o oscilador de 16 MHz */
@@ -38,13 +39,30 @@
 		{
 		}
 
+	}
+	
+		void disable_Peripherals(void)
+	{
+		
+		NRF_AAR->ENABLE = 0;
+		NRF_CCM->ENABLE = 0;
+		NRF_COMP->ENABLE = 0;
+		NRF_LPCOMP->ENABLE = 0;
+		NRF_QDEC->ENABLE = 0;
+		NRF_ADC->ENABLE = 0;
+		//NRF_UART->ENABLE = 0;
+		
+	}
+	
+		void init_32K(void)
+	{
+
 		/* Inicia o oscilador de 32 KHz */
 		NRF_CLOCK->EVENTS_LFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_LFCLKSTART = 1;
     while(NRF_CLOCK->EVENTS_LFCLKSTARTED == 0);
 
 	}
-	
 	
 	/**
 	 * @brief Function for application main entry.
@@ -53,23 +71,35 @@
 
 	int main(void)
 	{
-		init();
+		disable_Peripherals();
+		init_32K();
+		init_16M();
+		
+		
 		do{
 			
 			// Atualiza a área de memória para o qual time aponta
 			time = (uint32_t *) T_TX;
+			flag_transmissao 		= (uint32_t *) FLAG;
+			tempo_extra 		= (uint32_t *) EXTRA_TIME;
 			
 			// Garante que a tag fique pelo menos metade do tempo em modo sleep
-			if(*time < 0x5){
-					
-				RTC0_init(0x5);
+			if(*flag_transmissao == 1){
+			
+					RTC0_init(*tempo_extra);
 			
 			} else {
 				
-				RTC0_init(*time);
-				
-			}
+				if(*time < 0x5){
+					
+					RTC0_init(0x5);
 			
+				} else {
+				
+					RTC0_init(*time);
+				
+				}
+			}
 			do{
 						// Enter System ON sleep mode
 						__WFE();  
@@ -93,11 +123,11 @@ void RTC0_IRQHandler(void){
 					NRF_RTC0->EVENTS_COMPARE[0] = 0;
 			
 					interruptor1 = true;
-					
-					if(*flag_transmissao == 1){
-					
-							// Configura o módulo de radio
-							transceiver_setup();
+			
+					// Configura o módulo de radio
+					transceiver_setup();
+			
+					if(*flag_transmissao != 1){
 					
 							for(int i = 0; i < 3; i++){
 						
@@ -113,6 +143,8 @@ void RTC0_IRQHandler(void){
 					
 					// disabilita a interrupção do RTC0
 					RTC0_disable();
+					
+
    
 		}
 
@@ -136,20 +168,6 @@ void RTC1_IRQHandler(void){
 			
 }
 
-void RADIO_IRQHandler(void){
-	
-
-			
-					NRF_RTC1->TASKS_STOP = 1;
-					NRF_RTC1->TASKS_CLEAR = 1;
-					NRF_RTC1->EVENTS_COMPARE[0] = 0;
-				
-					RTC1_disable();
-					Radio_disable();
-
-
-			
-}
 	/**
 	 *@}
 	 **/

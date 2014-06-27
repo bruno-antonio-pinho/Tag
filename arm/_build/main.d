@@ -16,6 +16,5 @@
 .\_build\main.o: ..\..\..\..\Include\nrf51_bitfields.h
 .\_build\main.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
 .\_build\main.o: ..\..\..\..\Include\nrf51_deprecated.h
-.\_build\main.o: ..\..\..\..\Include\simple_uart.h
 .\_build\main.o: ..\boards.h
 .\_build\main.o: ..\..\..\..\Include\boards/pca1000X.h
